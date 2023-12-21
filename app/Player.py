@@ -23,13 +23,15 @@ class Player(EventSubscriber):
         prompt += f"chosen so far: {self.numbers}, numbers left to choose from: {event.number_of_numbers_offered - self.iterations}"
         prompt += "\n"
         return prompt
-        
+    # my dad wanted to add this to make it less ugly in the console, with his help. basically we're just using pre-made functions to
+    #clear the console after every choice the player makes.
     def clear_terminal(self):
         if platform.system() == "Windows":
             os.system('cls')  # Clear terminal for Windows
         else:
-            os.system('clear')  # Clear terminal for macOS and Linux
-        
+            os.system('clear')  # Clear terminal for macOS and Linux in case you use my code in any of the other operating systems.
+    # recieve the heavenly values that make the game tick from the event, and then prompt the player to choose the current number to keep or
+    # to let go.
     def receive_event(self, event):
         
         self.clear_terminal()
